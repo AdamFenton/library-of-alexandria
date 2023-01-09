@@ -6,3 +6,6 @@
 [Image Proccessing](https://github.com/AdamFenton/library-of-alexandria/tree/master/scripts/image-processing)
 
 [Splash](https://github.com/AdamFenton/library-of-alexandria/tree/master/scripts/splash)
+
+### Cheat Sheets
+[HPC Manual](https://github.com/AdamFenton/library-of-alexandria/tree/master/cheat-sheets/hpc_instructions.pdf)

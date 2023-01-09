@@ -1,17 +1,12 @@
-
 <style>
-  body {
-  }
   img {
     width: 200px;
-    float: right;
+    float: left;
     margin-right: 10px;
   }
 </style>
 
-<h1>Library of Alexandria</h1>
-
-<img src="/images/readme-images/library-of-alexandria.jpg">
+<img src="images/readme-images/library-of-alexandria.jpg" /> 
 <div>
-  Your long text here.... 
+  Your long text here....
 </div>

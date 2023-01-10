@@ -62,3 +62,18 @@ that parameter is mentioned or, we can use grep:
 ![](../examples/images/grep_example.png)
 
 The `-rw` flags say 'search all directories downwards of this one AND only produce exact matches of the pattern' Similar to `find`, you need to specify where to search but with `grep` it is done at the end of the command with `./*`. Again, `grep` is hugely useful and has endless applications. The best way to understand it is to read the manual page and just play with it.
+
+### For loops
+---
+Bash for loops work much the same as they do in python but they do have different syntax. The script I wrote at the top of this chapter is an example of a for loop which prints the numbers 1 to 10 but pads (fills) them with zeros so that the final value is three digits long (001,002..010).
+<br>
+You don't have to write a full shell script for a simple for loop though, it can be done on the command line on one line as long as you seperate the conditions with semi-colons (`;`).
+```
+for name in */; do echo $name;done
+
+```
+is a very simple look which just loops through all directories in a folder with the `*/;` part of the command and echos their name.
+You can make them as complicated as you like, I used them a lot to submit multiple jobs on a cluster at once without having to change directory and submit each job manually:
+```
+for run in run_*; do sbatch -A dp231 $run/run.job;done
+```

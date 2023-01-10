@@ -60,3 +60,5 @@ We can navigate to the code directory and look through each of the code files fo
 that parameter is mentioned or, we can use grep:
 
 ![](../examples/images/grep_example.png)
+
+The `-rw` flags say 'search all directories downwards of this one AND only produce exact matches of the pattern' Similar to `find`, you need to specify where to search but with `grep` it is done at the end of the command with `./*`. Again, `grep` is hugely useful and has endless applications. The best way to understand it is to read the manual page and just play with it. 

@@ -16,4 +16,8 @@
 
 ### Splash Notes
 
-[Splash Usage](https://github.com/AdamFenton/library-of-alexandria/tree/master/SPLASH/splash-usage.md)
+[Splash Usage](https://github.com/AdamFenton/library-of-alexandria/blob/master/bash_and_linux/bash_oneliners.md)
+
+### BASH notes
+
+[Bash one-liners]()

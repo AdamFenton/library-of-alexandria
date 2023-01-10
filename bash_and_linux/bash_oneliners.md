@@ -59,4 +59,4 @@ know how the code reads that value and what it does with it.
 We can navigate to the code directory and look through each of the code files for where
 that parameter is mentioned or, we can use grep:
 
-![](examples/images/grep_example.png)
+![](../examples/images/grep_example.png)

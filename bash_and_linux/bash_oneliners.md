@@ -4,9 +4,9 @@
 ### First - A note about the shebang
 The default terminal shell on all the starlink machines in csh for some reason. You can
 write bash scripts and run them using a csh shell by including the 'shebang' at the top of the
-file:
+file. It tells the computer which program should be called to run this script. In this case we want bash but it could be python too for example.
 ```
-#!/usr/bin/bash
+#!/usr/bin/bash # This is the shebang
 
 # This is a bash script
 for i in $(seq -f '%03g' 1 10);
@@ -61,4 +61,4 @@ that parameter is mentioned or, we can use grep:
 
 ![](../examples/images/grep_example.png)
 
-The `-rw` flags say 'search all directories downwards of this one AND only produce exact matches of the pattern' Similar to `find`, you need to specify where to search but with `grep` it is done at the end of the command with `./*`. Again, `grep` is hugely useful and has endless applications. The best way to understand it is to read the manual page and just play with it. 
+The `-rw` flags say 'search all directories downwards of this one AND only produce exact matches of the pattern' Similar to `find`, you need to specify where to search but with `grep` it is done at the end of the command with `./*`. Again, `grep` is hugely useful and has endless applications. The best way to understand it is to read the manual page and just play with it.

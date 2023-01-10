@@ -8,7 +8,7 @@
 [Splash](https://github.com/AdamFenton/library-of-alexandria/tree/master/scripts/splash)
 
 ### Cheat Sheets
-[HPC Manual](https://github.com/AdamFenton/library-of-alexandria/tree/master/cheat-sheets/hpc_instructions.pdf)
+[HPC Manual](https://github.com/AdamFenton/library-of-alexandria/tree/master/cheat-sheets/hpc_instructions.md)
 
 ### Python Notes
 

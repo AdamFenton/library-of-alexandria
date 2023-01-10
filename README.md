@@ -9,3 +9,11 @@
 
 ### Cheat Sheets
 [HPC Manual](https://github.com/AdamFenton/library-of-alexandria/tree/master/cheat-sheets/hpc_instructions.pdf)
+
+### Python Notes
+
+[Python Tricks](https://github.com/AdamFenton/library-of-alexandria/blob/master/python/python_tricks.ipynb)
+
+### Splash Notes
+
+[Splash Usage](https://github.com/AdamFenton/library-of-alexandria/tree/master/SPLASH/splash-usage.md)

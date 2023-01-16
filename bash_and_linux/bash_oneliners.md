@@ -77,3 +77,35 @@ You can make them as complicated as you like, I used them a lot to submit multip
 ```
 for run in run_*; do sbatch -A dp231 $run/run.job;done
 ```
+
+### The AWK command
+---
+The `awk` command is hugely useful and has a massive number of applications so you can read the manual and The Linux Command Line for more info but essentially it is a simple command line program that interacts with files containing
+text or numbers etc. The syntax is not immediatly obvious and you kind of learn by example. So say we have a simulation running that appends a line to a file called data.dat at each timestep. The first column of that line is the time (in code units or whatever) and we want to be able to quickly see how far through the simulation is. We can use `awk` to find the first line and the last entry on that line with
+```
+awk END'{print $1}' data.dat
+```
+Here, the `print $1` part tells the progam to focus on the first column (index starts at 1 not 0 as it does in python). It assumes that the program is whitespace seperated, I think it is just a single space and not a tab etc. But we can define our own seperator with the `-F` flag, see below.
+If `my_file.txt` contains a single line "This:is:a:new:text:file"
+```
+awk -F ':' '{print $4}' my_file.txt
+```
+would print "new".
+
+### Piping from one command to another
+---
+A pipe (|) in linux passes the results of one command to the next. A simple example is :
+```
+history | grep -w "find"
+```
+This would show you all the commands in the last session that you used that contained the word `find`.
+
+### The sed Command
+---
+Sed in linux stands for stream editor. It is essentially a find and replace tool and works quite well with
+piping results from grep or awk etc to build more powerful programs. The syntax is a little hard to explain but
+read the manual and find some examples on stack overflow. Below is an example I have written.
+```
+sed -i '' "s/old_value/new_value/g" run_dir/disc.in
+```
+The `-i` flag basically means you edit the file permenantly, if you don't include it, the changes wont be saved. The s and g characters define the boundaries of the replace command and the `/` seperates the find from the replace. This command finds all instances of "old_value" in disc.in and replaces is with "new_value". The way I used this was a bit more complicated and I have included the full example in the /examples directory. In there, I actually assign variables to old_value and new_value (as indicated by the $ character infront of them.) Essentially, if I type `my_var='my new string'` and then call the variable with `$my_var`, I will get 'my new string'.

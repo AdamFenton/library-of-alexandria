@@ -7,18 +7,18 @@ Just like a regular machine, each node has a number of cores. Each of the comput
 <br>
 I use the word 'job' to describe any code that you run on the computer, setting a simulation running is an example of a job.
 #### Logging on to Wildcat
-You will be using SSH to login to the supercomputer. To make the process a bit easier, you can add the following to your config file in ~./ssh, if that file is not present do not worry, you can just create it.
+You will be using SSH to login to the supercomputer. To make the process a bit easier, you can add the following to your config file in ~./ssh, if that file is not present do not worry, you can just create it. (port numbers are not 1111 but I have omitted the real one for security)
 
 ```bash
 Host uclanhpc
-    HostName 193.61.251.71
+    HostName IP
     User your_username
-    Port 22
+    Port 1111
 
 Host leopard
     HostName leopard
     User your_username
-    Port 22
+    Port 1111
     ProxyCommand ssh -W %h:%p uclanhpc
 ```
 This makes it easier to log in to the HPC. When you have made this change you will be able to type `ssh -XY your_username@leopard` and login to the leopard node of the HPC. It will ask you for your password twice, once to login to the 193.61.251.71 server (called **tiger**) and a second time to login to the head node called **leopard**. This is where you will submit your jobs.
@@ -28,11 +28,11 @@ When you login for the first time, your home area will be empty. Here you can cr
 
 #### Modules
 Working on the cluster is different from working on a regular laptop or PC. Instead of software being availible to you right away, it is controlled through *modules*. Let me show you an example:
-![image](/Users/adamfenton/Documents/PhD/cheatSheets/hpc_manual/screenshots/modules.png)
+![image](../examples/images/modules.png)
 In the screenshot above, you can see I use the command `module list` to show me which modules I currently have loaded (none at first). I then use `module avail` to show me which modules are availible on the cluster. I then use the `module load` command to load the `python/3.8.1` module. Using the `module list` command again shows me that python3 has been loaded.
 <br>
 <br>
-![image](/Users/adamfenton/Documents/PhD/cheatSheets/hpc_manual/screenshots/load_module.png)
+![image](../examples/images/load_module.png)
 I am just illustrating the process here, you would not be loading python3 on the head node because **we do not run code on the headnode**. The head node is only for compiling and submitting jobs, which I will get on to shortly.
 #### Bashrc file
 If you are familiar with bash then you may know about the bashrc file already. If not, the bashrc file contains a list of commands that are executed every time you login. This saves you having to type the same things in every time! (Actually it is .bashrc, the dot means it is hidden and will not be listed when you type `ls`.) For example, my .bashrc file contains the following
@@ -51,7 +51,7 @@ Keep in mind that for any changes you make to the .bashrc file to work the first
 
 #### Submission of jobs
 I mentioned before that we do not run code on the head node. I will use the SPH code PHANTOM as an example in the following. When logged on to the headnode using the process outlined above, you **cannot** just run the code as you normally would with `./phantom disc.in`. This will use up all the resources availible on the head node and stop all other users from submittion their own jobs. Instead you use a PBS script, see the example below, to request resources, give your job a name and load the appropriate modules. When you execute this script, your job will be submitted to the *scheduler* and, if the resources you requested are availible, your job will run.
-![image](/Users/adamfenton/Documents/PhD/cheatSheets/hpc_manual/screenshots/submission.png)
+
 Again using PHANTOM as an example, this script will be in the same directory as your `disc.in`, `disc_00000.tmp.h5` files (i.e. any files that the code requires to run, such as initial conditions).
 #### Compiling code on Wildcat
 The process of compiling code and installing dependancies (if they are not already installed as a **module**) is a bit nuanced and can require a little bit of fiddling. If you have any specific problems, let me know and I will give you a hand.
